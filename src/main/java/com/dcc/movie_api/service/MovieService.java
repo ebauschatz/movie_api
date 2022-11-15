@@ -44,6 +44,7 @@ public class MovieService {
         movie.setName(newMovie.getName());
         movie.setGenre(newMovie.getGenre());
         movie.setDirector(newMovie.getDirector());
+        movie.setImage(newMovie.getImage());
         movieRepository.save(movie);
         return movie;
     }
