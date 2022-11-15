@@ -34,4 +34,17 @@ public class MovieService {
             movieRepository.delete(movie);
         }
     }
+
+    public Movie getMovieByName(String name) {
+        return movieRepository.findByName(name).stream().findFirst().orElse(null);
+    }
+
+    public Movie updateMovie(Integer id, Movie newMovie) {
+        Movie movie = movieRepository.findById(id).orElse(null);
+        movie.setName(newMovie.getName());
+        movie.setGenre(newMovie.getGenre());
+        movie.setDirector(newMovie.getDirector());
+        movieRepository.save(movie);
+        return movie;
+    }
 }
